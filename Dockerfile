@@ -90,7 +90,6 @@ RUN dpkg --add-architecture i386 && apt-get update && DEBIAN_FRONTEND=noninterac
     lib32ncurses6 \
     lib32z1 \
     libgl1-mesa-dev \
-    openjdk-11-jdk \
     unzip \
     wget \
     zip \
