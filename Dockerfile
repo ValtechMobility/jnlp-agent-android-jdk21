@@ -1,7 +1,7 @@
-FROM jenkins/inbound-agent:alpine as jnlp
+FROM jenkins/inbound-agent:alpine-jdk21 as jnlp
 
-#jdk17 from July'25
-FROM jenkins/agent:3309.v27b_9314fd1a_4-7-jdk17
+#jdk21 from October'26
+FROM jenkins/agent:3391.va_37fa_a_305d6d-5-jdk21
 
 ARG version
 LABEL Description="This is a base image, which allows connecting Jenkins agents via JNLP protocols" Vendor="Jenkins project" Version="$version"
