@@ -1,1 +1,1 @@
-# jnlp-agent-android-jdk17
+# jnlp-agent-android-jdk21
