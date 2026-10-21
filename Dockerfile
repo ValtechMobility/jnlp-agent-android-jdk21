@@ -79,12 +79,22 @@ RUN chmod +x /usr/local/bin/gitversion
 
 # Dependencies to execute Android builds
 RUN apt-get update -qq
-RUN dpkg --add-architecture i386 && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    libc6:i386 \
-    libgcc1:i386 \
-    libncurses5:i386 \
-    libstdc++6:i386 \
-    libz1:i386
+RUN dpkg --add-architecture i386 && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    bash \
+    bc \
+    build-essential \
+    ca-certificates \
+    ccache \
+    curl \
+    git \
+    lib32ncurses6 \
+    lib32z1 \
+    libgl1-mesa-dev \
+    openjdk-11-jdk \
+    unzip \
+    wget \
+    zip \
+    zlib1g-dev
 
 SHELL ["/bin/bash", "-c"]
 
