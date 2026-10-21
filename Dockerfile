@@ -20,7 +20,7 @@ RUN chmod +x /usr/local/bin/jenkins-agent && \
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends curl gcc g++ gnupg unixodbc-dev openssl git && \
-    apt-get install -y software-properties-common ca-certificates && \
+    apt-get install -y ca-certificates && \
     apt-get install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libssl-dev libreadline-dev libffi-dev wget libbz2-dev libsqlite3-dev && \
     update-ca-certificates
 
@@ -36,16 +36,9 @@ RUN apt-get install -y \
     wget \
     openssh-client \
     ca-certificates-java \
-    # openjdk-17-jdk \
     libxml2-utils \
     libxml-xpath-perl \
     jq
-
-RUN apt-get install -y apt-transport-https
-RUN wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /etc/apt/keyrings/adoptium.asc > /dev/null
-RUN echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb bookworm main" | tee /etc/apt/sources.list.d/adoptium.list
-RUN apt-get update
-RUN apt-get install -y temurin-21-jdk
 
 # python
 ENV PY_VERSION=3.12.12
